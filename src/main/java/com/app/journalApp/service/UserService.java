@@ -7,6 +7,7 @@ import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -17,6 +18,14 @@ public class UserService {
 
     //    saving the Journal Entry
     public UserEntity saveUser(UserEntity user) {
+        return uer.save(user);
+    }
+
+//    private static final PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    public UserEntity saveNewUser(UserEntity user) {
+//        user.setPassword(passwordEncoder.encode(user.getPassword()));
+        user.setPassword(user.getPassword());
+        user.setRoles(Arrays.asList("user"));
         return uer.save(user);
     }
 

@@ -29,6 +29,8 @@ public class UserEntity {
     @NonNull
     private String password;
 
+    private List<String> roles;
+
     //  One user has many journal entries
     @DBRef(lazy = true)   // lazy = don’t fetch journals unless needed
     @JsonManagedReference

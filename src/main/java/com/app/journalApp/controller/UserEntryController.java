@@ -24,13 +24,13 @@ public class UserEntryController {
         return usr.saveUser(user);
     }
 
-    //    get all user
+    //        get all user
     @GetMapping
     public List<UserEntity> getAllUser() {
         return usr.getAllUsers();
     }
 
-    //    updating user
+    //        updating user
     @PutMapping("/byName")
     public ResponseEntity<UserEntity> updateUserById(@RequestParam("name") String usrName, @RequestBody UserEntity newUsr) {
         UserEntity oldUsr = usr.findUserByName(usrName);
@@ -41,4 +41,7 @@ public class UserEntryController {
         }
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
+
+
 }
+
